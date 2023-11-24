@@ -1,0 +1,181 @@
+apiVersion: v1
+entries:
+  elasticsearch:
+  - apiVersion: v1
+    appVersion: 7.17.3
+    created: "2023-11-24T13:45:06.308592+01:00"
+    description: Official Elastic helm chart for Elasticsearch
+    digest: 437a6bd248482b8eb663a1f63bee6c2f9d00c0d77abe90c5a86ca35631969608
+    home: https://github.com/elastic/helm-charts
+    icon: https://helm.elastic.co/icons/elasticsearch.png
+    maintainers:
+    - email: helm-charts@elastic.co
+      name: Elastic
+    name: elasticsearch
+    sources:
+    - https://github.com/elastic/elasticsearch
+    urls:
+    - elasticsearch-7.17.3.tgz
+    version: 7.17.3
+  kafka:
+  - annotations:
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 3.2.3
+    created: "2023-11-24T13:45:06.313735+01:00"
+    dependencies:
+    - condition: zookeeper.enabled
+      name: zookeeper
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.x.x
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Apache Kafka is a distributed streaming platform designed to build
+      real-time pipelines and can be used as a message broker or as a replacement
+      for a log aggregation solution for big data applications.
+    digest: dec1ae3ebf61f7d2dd43441afd7c2f0cace647adc790b87270d5710eb251c88f
+    home: https://github.com/bitnami/charts/tree/master/bitnami/kafka
+    icon: https://bitnami.com/assets/stacks/kafka/img/kafka-stack-220x234.png
+    keywords:
+    - kafka
+    - zookeeper
+    - streaming
+    - producer
+    - consumer
+    maintainers:
+    - name: Bitnami
+      url: https://github.com/bitnami/charts
+    name: kafka
+    sources:
+    - https://github.com/bitnami/containers/tree/main/bitnami/kafka
+    - https://kafka.apache.org/
+    urls:
+    - kafka-18.4.4.tgz
+    version: 18.4.4
+  kestra:
+  - annotations:
+      artifacthub.io/links: |
+        - name: Documentation
+          url: https://kestra.io/docs/
+      artifacthub.io/screenshots: |
+        - title: Home page
+          url: https://raw.githubusercontent.com/kestra-io/kestra.io/main/public/docs/user-interface-guide/02-Homepage-Empty.png
+        - title: Flows list
+          url: https://raw.githubusercontent.com/kestra-io/kestra.io/main/public/docs/user-interface-guide/04-Flows.png
+        - title: Flow page
+          url: https://raw.githubusercontent.com/kestra-io/kestra.io/main/public/docs/user-interface-guide/05-Flows-Flow.png
+        - title: Execution list
+          url: https://raw.githubusercontent.com/kestra-io/kestra.io/main/public/docs/user-interface-guide/08-Executions.png
+        - title: Execution page
+          url: https://raw.githubusercontent.com/kestra-io/kestra.io/main/public/docs/user-interface-guide/09-Executions-Execution.png
+        - title: Execution gantt
+          url: https://raw.githubusercontent.com/kestra-io/kestra.io/main/public/docs/user-interface-guide/27-Executions-Gantt.png
+        - title: Namespaces list
+          url: https://raw.githubusercontent.com/kestra-io/kestra.io/main/public/docs/user-interface-guide/14-EE-Namespace.png
+        - title: Global logs
+          url: https://raw.githubusercontent.com/kestra-io/kestra.io/main/public/docs/user-interface-guide/10-Logs.png
+        - title: Documentation
+          url: https://raw.githubusercontent.com/kestra-io/kestra.io/main/public/docs/user-interface-guide/12-Documentations-Plugins-Plugin.png
+    apiVersion: v1
+    appVersion: 0.13.0
+    created: "2023-11-24T13:45:06.323192+01:00"
+    dependencies:
+    - condition: elasticsearch.enabled
+      name: elasticsearch
+      repository: https://helm.elastic.co
+      version: ^7.17.3
+    - condition: kafka.enabled
+      name: kafka
+      repository: https://charts.bitnami.com/bitnami
+      version: ^18.3.1
+    - condition: minio.enabled
+      name: minio
+      repository: https://charts.min.io/
+      version: ^4.0.13
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: ~11.9.2
+    description: Infinitely scalable, event-driven, language-agnostic orchestration
+      and scheduling platform to manage millions of workflows declaratively in code.
+    digest: 579c157bba04dcfe46ac6706557dfd2969fb2984418491fdab304e6b92383af9
+    home: https://kestra.io
+    icon: https://kestra.io/favicon-192x192.png
+    keywords:
+    - orchestrator
+    - scheduler
+    - workflow
+    maintainers:
+    - email: tchiot.ludo@gmail.com
+      name: tchiotludo
+    name: kestra
+    sources:
+    - https://github.com/kestra-io/helm-charts
+    type: application
+    urls:
+    - kestra-0.13.0.tgz
+    version: 0.13.0
+  minio:
+  - apiVersion: v1
+    appVersion: RELEASE.2022-09-17T00-09-45Z
+    created: "2023-11-24T13:45:06.324085+01:00"
+    description: Multi-Cloud Object Storage
+    digest: 6f16f2dbfed91ab81a7fae60b6ea32f554365bd27bf5fda55b64a0fa264f4252
+    home: https://min.io
+    icon: https://min.io/resources/img/logo/MINIO_wordmark.png
+    keywords:
+    - minio
+    - storage
+    - object-storage
+    - s3
+    - cluster
+    maintainers:
+    - email: dev@minio.io
+      name: MinIO, Inc
+    name: minio
+    sources:
+    - https://github.com/minio/minio
+    urls:
+    - minio-4.0.15.tgz
+    version: 4.0.15
+  postgresql:
+  - annotations:
+      category: Database
+    apiVersion: v2
+    appVersion: 14.5.0
+    created: "2023-11-24T13:45:06.326428+01:00"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: PostgreSQL (Postgres) is an open source object-relational database
+      known for reliability and data integrity. ACID-compliant, it supports foreign
+      keys, joins, views, triggers and stored procedures.
+    digest: e0e4d65ecbce8167cb02bc437a5927928336a2b705ae14d53bd7d3de9a3a343e
+    home: https://github.com/bitnami/charts/tree/master/bitnami/postgresql
+    icon: https://bitnami.com/assets/stacks/postgresql/img/postgresql-stack-220x234.png
+    keywords:
+    - postgresql
+    - postgres
+    - database
+    - sql
+    - replication
+    - cluster
+    maintainers:
+    - name: Bitnami
+      url: https://github.com/bitnami/charts
+    - email: cedric@desaintmartin.fr
+      name: desaintmartin
+    name: postgresql
+    sources:
+    - https://github.com/bitnami/containers/tree/main/bitnami/postgresql
+    - https://www.postgresql.org/
+    urls:
+    - postgresql-11.9.2.tgz
+    version: 11.9.2
+generated: "2023-11-24T13:45:06.307439+01:00"
