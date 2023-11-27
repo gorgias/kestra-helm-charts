@@ -3,7 +3,7 @@ entries:
   elasticsearch:
   - apiVersion: v1
     appVersion: 7.17.3
-    created: "2023-11-24T13:45:06.308592+01:00"
+    created: "2023-11-27T14:57:31.432767+01:00"
     description: Official Elastic helm chart for Elasticsearch
     digest: 437a6bd248482b8eb663a1f63bee6c2f9d00c0d77abe90c5a86ca35631969608
     home: https://github.com/elastic/helm-charts
@@ -15,14 +15,14 @@ entries:
     sources:
     - https://github.com/elastic/elasticsearch
     urls:
-    - elasticsearch-7.17.3.tgz
+    - https://core-ops-charts.storage.googleapis.com/kestra/charts/elasticsearch-7.17.3.tgz
     version: 7.17.3
   kafka:
   - annotations:
       category: Infrastructure
     apiVersion: v2
     appVersion: 3.2.3
-    created: "2023-11-24T13:45:06.313735+01:00"
+    created: "2023-11-27T14:57:31.437898+01:00"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -53,7 +53,7 @@ entries:
     - https://github.com/bitnami/containers/tree/main/bitnami/kafka
     - https://kafka.apache.org/
     urls:
-    - kafka-18.4.4.tgz
+    - https://core-ops-charts.storage.googleapis.com/kestra/charts/kafka-18.4.4.tgz
     version: 18.4.4
   kestra:
   - annotations:
@@ -81,7 +81,7 @@ entries:
           url: https://raw.githubusercontent.com/kestra-io/kestra.io/main/public/docs/user-interface-guide/12-Documentations-Plugins-Plugin.png
     apiVersion: v1
     appVersion: 0.13.0
-    created: "2023-11-24T13:45:06.323192+01:00"
+    created: "2023-11-27T14:57:31.431429+01:00"
     dependencies:
     - condition: elasticsearch.enabled
       name: elasticsearch
@@ -101,7 +101,7 @@ entries:
       version: ~11.9.2
     description: Infinitely scalable, event-driven, language-agnostic orchestration
       and scheduling platform to manage millions of workflows declaratively in code.
-    digest: 579c157bba04dcfe46ac6706557dfd2969fb2984418491fdab304e6b92383af9
+    digest: d7fc86c130f75d04008050a0f70906631e5eaefd9e788c66516d67a7b18455e6
     home: https://kestra.io
     icon: https://kestra.io/favicon-192x192.png
     keywords:
@@ -116,12 +116,12 @@ entries:
     - https://github.com/kestra-io/helm-charts
     type: application
     urls:
-    - kestra-0.13.0.tgz
+    - https://core-ops-charts.storage.googleapis.com/kestra/kestra-0.13.0.tgz
     version: 0.13.0
   minio:
   - apiVersion: v1
     appVersion: RELEASE.2022-09-17T00-09-45Z
-    created: "2023-11-24T13:45:06.324085+01:00"
+    created: "2023-11-27T14:57:31.439167+01:00"
     description: Multi-Cloud Object Storage
     digest: 6f16f2dbfed91ab81a7fae60b6ea32f554365bd27bf5fda55b64a0fa264f4252
     home: https://min.io
@@ -139,14 +139,14 @@ entries:
     sources:
     - https://github.com/minio/minio
     urls:
-    - minio-4.0.15.tgz
+    - https://core-ops-charts.storage.googleapis.com/kestra/charts/minio-4.0.15.tgz
     version: 4.0.15
   postgresql:
   - annotations:
       category: Database
     apiVersion: v2
     appVersion: 14.5.0
-    created: "2023-11-24T13:45:06.326428+01:00"
+    created: "2023-11-27T14:57:31.441708+01:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -176,6 +176,6 @@ entries:
     - https://github.com/bitnami/containers/tree/main/bitnami/postgresql
     - https://www.postgresql.org/
     urls:
-    - postgresql-11.9.2.tgz
+    - https://core-ops-charts.storage.googleapis.com/kestra/charts/postgresql-11.9.2.tgz
     version: 11.9.2
-generated: "2023-11-24T13:45:06.307439+01:00"
+generated: "2023-11-27T14:57:31.420962+01:00"

@@ -175,7 +175,11 @@ metadata:
   {{- end }}
 spec:
   {{- if eq $deployment.kind "Deployment" }}
+    {{- if $deployment.autoscaler -}}
+      {{- if eq $deployment.autoscaler.enabled false -}}
   replicas: {{ $deployment.replicaCount | default 1 }}
+      {{- end}}
+    {{- end}}
   {{- end }}
   {{- if $deployment.strategy }}
   strategy:
